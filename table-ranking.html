@@ -1,0 +1,638 @@
+<style>
+   /* utility */ 
+   .empty-spacer { opacity:0; pointer-events:none; }
+   .p-relative { position:relative; align-items:center; }
+   .pt-5 { padding-top:5px }
+   .font-80 { font-size:0.8em; }
+   .d-none { display:none }
+   .d-flex { display:flex; }
+   .flex-end { align-items:flex-end; }
+   .text-center { text-align:center; }
+   .align-center { align-items:center; }
+   .justify-center { justify-content:center; }
+   .comparison-table { background: #f5f5fa; padding:1rem 1rem 5rem 1 rem; }
+   .comparison-table-container { width:1170px; max-width:100%; margin:0 auto; color:#848199; }
+   .comparison-headings { margin:0 0 30px; line-height:1.6; }
+   .comparison-headings h2 { margin:0 0 10px; color:#231d4f; font-size: 20px; }
+   .comparison-table-head { border-bottom:1px solid #ccc; }
+   .comparison-table-foot { border-top:1px solid #ccc; }
+   .comparison-table-card { margin-bottom:30px; }
+   .comparison-table-row { display:flex; }
+   .comparison-table-col:first-child { flex:1; }
+   .comparison-table-col { flex:0.8; padding-top:20px; padding-bottom:20px; }
+   .comparison-card-head { padding:10px 15px; font-weight:bold; }
+   .comparison-card-head-desc { font-weight:400; color:#848199; margin:15px 0; }
+   .comparison-card-head-icon { text-align:center; margin-bottom:24px; }
+   .comparison-card-head-icon img { max-width:calc(100% - 60px); width:120px; }
+   .comparison-card-head-price { font-size:24px; margin:15px 0; }
+   .comparison-card-item { min-height:45px; padding:0px 15px; box-sizing:border-box; }
+   .comparison-card-item:nth-child(odd) { }
+   .comparison-card-item:nth-child(even) { }
+   .comparison-table-icon svg { max-width:24px; height:24px; display:block; }
+   .comparison-table-icon svg * { fill:currentColor; }
+   .comparison-table-icon svg[data-icon=check] { color:#5243c2; }
+   .comparison-table-icon svg[data-icon=times] { color:#c00; }
+   .comparison-card-foot { padding:10px 15px }
+   .comparison-card-foot a { 
+   transition: all 300ms ease;
+   display: inline-block;
+   color: #FFF;
+   background: #5243c2;
+   border-radius: 30px;
+   text-align: center;
+   text-decoration: none;
+   padding: 15px 20px;
+   font-size: 15px;
+   font-weight: 600;
+   width: 90%;
+   box-sizing: border-box;
+   }
+   .comparison-card-item-title {
+   line-height:1.5;
+   }
+   .comparison-card-item-title:hover ~ .comparison-tooltip {
+   opacity: 1;
+   transform: translate(-50%,-100%);
+   }
+   .comparison-tooltip { 
+   position: absolute;
+   display: block;
+   width: 220px;
+   font-size: 14px;
+   color: #747b7f;
+   padding: 20px;
+   background-color: #fff;
+   letter-spacing: .02em;
+   border-radius: 5px;
+   box-shadow: 0 10px 20px rgba(0,0,0,.15);
+   top: -10px;
+   left: 50%;
+   transform: translate(-50%,-130px);
+   opacity: 0;
+   transition: all .25s;
+   pointer-events: none;
+   font-weight: 400;
+   }
+   .comparison-tooltip:before {
+   content: '';
+   position: absolute;
+   left: 50%;
+   bottom: 0;
+   transform: translate(-50%,100%);
+   border-style: solid;
+   border-width: 10px 10px 0;
+   border-color: #fff transparent transparent;
+   }
+   .comparison-card-head { color:#231d4f; }
+   @media only screen and (min-width:1025px) {
+   .comparison-table-col.active { background:#EBF8FF; border-radius:20px; box-shadow:16px 16px 42px 0 rgba(23, 18, 63, 0.12); }
+   .comparison-table-col:not(.active) .comparison-card-item { border-bottom:1px solid rgba(0,0,0,0.1); }
+   }
+   @media only screen and (max-width:817px) {
+   .wrapper {
+   overflow-x:scroll;
+   position: relative;
+   display: flex;
+   }
+   }
+</style>
+<div class="row-fluid-wrapper row-depth-1 row-number-7 dnd-row">
+   <div class="row-fluid ">
+      <div class="span12 widget-span widget-type-custom_widget dnd-module" style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+         <div id="hs_cos_wrapper_dnd_area-module-7" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+            <div class="wrapper">
+               <div class="comparison-table dnd_area-module-7">
+                  <div class="comparison-table-container">
+                     <div class="comparison-headings text-center">
+                     <div class="comparison-table-card">
+                        <div class="comparison-table-row flex-end">
+                           <div class=" comparison-table-col col--0">
+                              <div class="comparison-card-head ">
+                                 <div class="comparison-card-head-title">
+                                    Empresas
+                                 </div>
+                              </div>
+                              <div class="comparison-card-body">
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 01</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 02</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 03</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 04</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 05</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 06</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 07</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 08</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 09</div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item p-relative d-flex align-center">
+                                    <div class="comparison-card-item-title">
+                                       <div>Empresa 10</div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class=" comparison-table-col col--1">
+                              <div class="comparison-card-head text-center">
+                                 <div class="comparison-card-head-icon">
+                                    <img src="https://20420831.fs1.hubspotusercontent-na1.net/hubfs/20420831/TaxaResposta@2x.png" alt="TaxaResposta@2x">
+                                 </div>
+                                 <div class="comparison-card-head-title">
+                                    Taxa de resposta
+                                 </div>
+                              </div>
+                              <div class="comparison-card-body">
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          50%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 01</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          45%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 02</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          40%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 03</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          35%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 04</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          30%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 05</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          25%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 06</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          20%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 07</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          15%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 08</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          10%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 09</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          5%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 10</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class=" comparison-table-col col--2">
+                              <div class="comparison-card-head text-center">
+                                 <div class="comparison-card-head-icon">
+                                    <img src="https://20420831.fs1.hubspotusercontent-na1.net/hubfs/20420831/TempoResposta@2x.png" alt="TempoResposta@2x">
+                                 </div>
+                                 <div class="comparison-card-head-title">
+                                    Tempo de resposta
+                                 </div>
+                              </div>
+                              <div class="comparison-card-body">
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          50%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 01</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          45%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 02</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          40%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 03</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          35%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 04</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          30%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 05</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          25%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 06</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          20%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 07</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          15%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 08</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          10%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 09</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          5%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 10</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class=" comparison-table-col col--3">
+                              <div class="comparison-card-head text-center">
+                                 <div class="comparison-card-head-icon">
+                                    <img src="https://20420831.fs1.hubspotusercontent-na1.net/hubfs/20420831/TaxaTransbordo@2x.png" alt="TaxaTransbordo@2x">
+                                 </div>
+                                 <div class="comparison-card-head-title">
+                                    Taxa de transbordo
+                                 </div>
+                              </div>
+                              <div class="comparison-card-body">
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          50%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 01</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          45%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 02</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          40%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 03</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          35%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 04</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          30%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 05</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          25%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 06</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          20%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 07</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          15%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 08</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          10%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 09</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          5%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 10</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class=" comparison-table-col col--4">
+                              <div class="comparison-card-head text-center">
+                                 <div class="comparison-card-head-icon">
+                                    <img src="https://20420831.fs1.hubspotusercontent-na1.net/hubfs/20420831/SentimentoPositivo@2x.png" alt="SentimentoPositivo@2x">
+                                 </div>
+                                 <div class="comparison-card-head-title">
+                                    Sentimento positivo
+                                 </div>
+                              </div>
+                              <div class="comparison-card-body">
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          50%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 01</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          45%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 02</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          40%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 03</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          35%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 04</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          30%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 05</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          25%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 06</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          20%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 07</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          15%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 08</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          10%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 09</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          5%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 10</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class=" comparison-table-col col--5">
+                              <div class="comparison-card-head text-center">
+                                 <div class="comparison-card-head-icon">
+                                    <img src="https://20420831.fs1.hubspotusercontent-na1.net/hubfs/20420831/MensagemIgnorada@2x.png" alt="MensagemIgnorada@2x">
+                                 </div>
+                                 <div class="comparison-card-head-title">
+                                    Mensagens ignoradas
+                                 </div>
+                              </div>
+                              <div class="comparison-card-body">
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          50%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 01</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          45%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 02</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          40%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 03</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          35%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 04</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          30%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 05</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          25%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 06</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          20%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 07</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          15%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 08</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          10%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 09</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="comparison-card-item d-flex align-items justify-center">
+                                    <div class="d-flex align-center p-relative">
+                                       <div class="comparison-card-item-title d-xs-text-center">
+                                          5%
+                                          <span class="d-none d-xs-block pt-5 font-80">Empresa 10</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--end widget-span -->
+   </div>
+   <!--end row-->
+</div>
